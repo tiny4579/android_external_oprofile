@@ -45,9 +45,10 @@ HAVE_LIBBFD := true
 common_host_cflags += -DMISSING_MREMAP
 common_host_ldlibs_libiconv := -liconv
 else
+ifeq ($(findstring linaro,$(TARGET_TOOLS_PREFIX)),)
 ifeq ($(HOST_OS)-$(HOST_ARCH),linux-x86)
 HAVE_LIBBFD := true
 endif
 endif
-
+endif
 endif
